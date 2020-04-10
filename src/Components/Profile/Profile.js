@@ -4,10 +4,9 @@ import Myposts from "./MyPosts/Myposts";
 
 const Profile = () => {
     return (
-        <div className={s.content}>
+        <div>
             <div>
-                <img
-                    src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQapJvfrVihBAZ1d8dYLUIE93TkYiuDj1CobwgQ8okmWShAucSE&usqp=CAU'></img>
+                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQapJvfrVihBAZ1d8dYLUIE93TkYiuDj1CobwgQ8okmWShAucSE&usqp=CAU'></img>
             </div>
             <div>
                 ava + descript
