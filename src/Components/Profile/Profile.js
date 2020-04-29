@@ -1,17 +1,13 @@
 import React from 'react';
 import s from './Profile.module.css';
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import Myposts from "./MyPosts/Myposts";
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <div>
-            <div>
-                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQapJvfrVihBAZ1d8dYLUIE93TkYiuDj1CobwgQ8okmWShAucSE&usqp=CAU'></img>
-            </div>
-            <div>
-                ava + descript
-            </div>
-            <Myposts/>
+            <ProfileInfo/>
+            <Myposts posts={props.state.posts} addPost={props.addPost}/>
         </div>
     )
 }
