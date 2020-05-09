@@ -15,6 +15,6 @@ const DialogItem = (props) => {
 export default DialogItem;
 
 DialogItem.propTypes = {
-    name: PropTypes.number,
-    id: PropTypes.object
+    name: PropTypes.string,
+    id: PropTypes.number
 };
