@@ -8,19 +8,19 @@ import {sendMessageCreator, updateNewMessageCreator} from "../../Redux/DialogRed
 
 const Dialogs = (props) => {
 
-    let state = props.store.getState().dialogsPage;
+    let state = props.dialogsPage;
 
     let dialogsElements = state.dialogs.map(dialog => <DialogItem name={dialog.name} id={dialog.id}/>);
     let messagesElements = state.messages.map(message => <Message message={message.message}/>);
     let newMessage = state.newMessage;
 
     let addMessage = () =>{
-        props.store.dispatch(sendMessageCreator());
+        props.sendMessage();
     }
 
     let onMessageChange = (e) =>{
         let text = e.target.value;
-        props.store.dispatch(updateNewMessageCreator(text));
+        props.updateNewMessageBody(text);
     }
 
     return (
