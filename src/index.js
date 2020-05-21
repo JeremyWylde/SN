@@ -4,23 +4,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-//import store from "./Redux/State";
+import {Provider} from "react-redux";
 
-let renderEntityTree  = (state) =>{
+
     ReactDOM.render(
         <React.StrictMode>
-            <App state={state} dispatch={store.dispatch.bind(store)} store={store}/>
+            <Provider store={store}>
+            <App/>
+            </Provider>
         </React.StrictMode>,
         document.getElementById('root')
     );
-};
 
-renderEntityTree(store.getState());
 
-store.subscribe(()=>{
-    let state = store.getState();
-    renderEntityTree(state);
-});
 
 
 // If you want your app to work offline and load faster, you can change

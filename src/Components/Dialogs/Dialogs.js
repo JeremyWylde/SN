@@ -10,8 +10,8 @@ const Dialogs = (props) => {
 
     let state = props.dialogsPage;
 
-    let dialogsElements = state.dialogs.map(dialog => <DialogItem name={dialog.name} id={dialog.id}/>);
-    let messagesElements = state.messages.map(message => <Message message={message.message}/>);
+    let dialogsElements = state.dialogs.map(dialog => <DialogItem key={dialog.id} name={dialog.name} id={dialog.id}/>);
+    let messagesElements = state.messages.map(message => <Message key={message.id} message={message.message}/>);
     let newMessage = state.newMessage;
 
     let addMessage = () =>{
@@ -31,7 +31,7 @@ const Dialogs = (props) => {
             <div className={s.messages}>
                 <div>{messagesElements}</div>
                 <div>
-                    <div><textarea onChange={onMessageChange} placeholder='Enter message' value={newMessage}></textarea></div>
+                    <div><textarea onChange={onMessageChange} placeholder='Enter message' value={newMessage}/></div>
                     <div><button onClick={addMessage}>Отправить</button></div>
                 </div>
             </div>
