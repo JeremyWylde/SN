@@ -5,9 +5,13 @@ import MypostsContainer from "./MyPosts/MypostsContainer";
 import {updateStatus} from "../../Redux/ProfileReducer";
 
 const Profile = (props) => {
+    let isThisNotAuthorizedUser = false;
+    if(props.match.params.userId)
+        isThisNotAuthorizedUser = true;
     return (
         <div>
-            <ProfileInfo profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
+            <ProfileInfo profile={props.profile} status={props.status} updateStatus={props.updateStatus}
+                         isThisAuthorizedUser={isThisNotAuthorizedUser}/>
             <MypostsContainer />
         </div>
     )
