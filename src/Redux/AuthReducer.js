@@ -31,17 +31,17 @@ export const setAuthUserData = (id, email, login, isAuth) => ({
     payload: {id, email, login, isAuth}
 });
 
-export const getAuthUserData = () => (dispatch) =>{
-    authApi.me().then(response => {
+export const getAuthUserData = () => async (dispatch) =>{
+    let response = await authApi.me();
         if(response.data.resultCode === 0 ){
             let {id, login, email} = response.data.data;
             dispatch(setAuthUserData(id, email, login, true));
         }
-    });
+
 };
 
-export const login = (email, password, remeberMe) => (dispatch) =>{
-    authApi.login(email, password, remeberMe).then(response => {
+export const login = (email, password, remeberMe) =>  async (dispatch) =>{
+     let response = await authApi.login(email, password, remeberMe);
         if(response.data.resultCode === 0 ){
             dispatch(getAuthUserData())
         }
@@ -50,15 +50,14 @@ export const login = (email, password, remeberMe) => (dispatch) =>{
                 ? response.data.messages[0] : "email or password is wrong";
             dispatch(stopSubmit('login',{_error: messageError}));
         }
-    });
 };
 
-export const logout = () => (dispatch) =>{
-    authApi.logout().then(response => {
+export const logout = () => async (dispatch) =>{
+    let response = await authApi.logout();
         if(response.data.resultCode === 0 ){
             dispatch(setAuthUserData(null, null, null, false));
         }
-    });
+
 };
 
 
